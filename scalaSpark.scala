@@ -25,9 +25,10 @@ object SimpleApp {
 	def main(args: Array[String]) {
 		val conf = new SparkConf().setAppName("Simple Application for testing")
     	val sc = new SparkContext(conf)
-		val textRDD = sc.textFile(args(0))
-		
-		val flightsRDD = textRDD.map(parseFlight).cache()
-		flightsRDD.first()
+		var textRDD = sc.textFile(args(0))
+		val header = textRDD.first()
+		textRDD = textRDD.filter(row => row != header)      // this removes the header from the input data 
+		val flightsRDD = textRDD.map(parseFlight).cache()	
+		flightsRDD.first()	
 	}
 }
