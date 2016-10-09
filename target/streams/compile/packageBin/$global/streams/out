@@ -1,0 +1,13 @@
+[0m[[0minfo[0m] [0mPackaging /Users/shilpa/Documents/Scala-spark/target/scala-2.11/scala-spark_2.11-1.0.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	SimpleApp.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/shilpa/Documents/Scala-spark/target/scala-2.11/classes/SimpleApp.class[0m
+[0m[[0mdebug[0m] [0m	Flight$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/shilpa/Documents/Scala-spark/target/scala-2.11/classes/Flight$.class[0m
+[0m[[0mdebug[0m] [0m	Flight.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/shilpa/Documents/Scala-spark/target/scala-2.11/classes/Flight.class[0m
+[0m[[0mdebug[0m] [0m	SimpleApp$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/shilpa/Documents/Scala-spark/target/scala-2.11/classes/SimpleApp$.class[0m
+[0m[[0mdebug[0m] [0m	SimpleApp$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/shilpa/Documents/Scala-spark/target/scala-2.11/classes/SimpleApp$$anonfun$1.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
