@@ -15,11 +15,26 @@ case class Flight(dofM: String, dofW: String, uniqueCarrier: String, tailnum: St
 
 
 object SimpleApp {
-	 // function to parse input into Flight class
+	
+	def toInt(str: String): Int = {
+		if(str.equalsIgnoreCase("NA") || str.equalsIgnoreCase("N/A")){
+			return 0
+		}
+		return str.toInt
+	}
+
+	def toDouble(str: String): Double = {
+		if(str.equalsIgnoreCase("NA") || str.equalsIgnoreCase("N/A")){
+			return 0.0
+		}
+		return str.toDouble
+	}
+
 	def parseFlight(str: String): Flight = {
+	  val zero = 0;	
 	  val line = str.split(",")
-	  Flight(line(2), line(3), line(8), line(10), line(9).toInt, line(16), line(17), line(5).toDouble, 
-	  	line(4).toDouble, line(15).toDouble, line(7).toDouble, line(6).toDouble, line(14).toDouble, line(12).toDouble, line(18).toInt)
+	  Flight(line(2), line(3), line(8), line(10), toInt(line(9)), line(16), line(17), line(5).toDouble, 
+	  	toDouble(line(4)), toDouble(line(15)), toDouble(line(7)), toDouble(line(6)), toDouble(line(14)), toDouble(line(12)), toInt(line(18)))
 	}
 
 	def main(args: Array[String]) {
