@@ -43,7 +43,7 @@ object SimpleApp {
 		var textRDD = sc.textFile(args(0))
 		val header = textRDD.first()
 		textRDD = textRDD.filter(row => row != header)      // this removes the header from the input data 
-		val flightsRDD = textRDD.map(parseFlight).cache()	
+		val flightsRDD = textRDD.map(parseFlight).cache()
 		println(flightsRDD.first())
 
 		// converting carrier code to nums
