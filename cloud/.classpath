@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/cassandra-driver-core-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/snappy-java-1.0.5.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/lz4-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/netty-3.9.0.Final.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/metrics-core-3.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/slf4j-simple-1.7.21.jar"/>
+	<classpathentry kind="lib" path="/Users/bishalgautam/Downloads/cassandra-jdbc-2.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
