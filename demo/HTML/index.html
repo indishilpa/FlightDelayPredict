@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CloudFlight App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- time picker  -->
+  <link rel="stylesheet" href="/Users/bishalgautam/Desktop/EEL6761/FlightDelayPredict/HTML/jquery-timepicker-1.3.5/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="/Users/bishalgautam/Desktop/EEL6761/FlightDelayPredict/HTML/jquery-ui-themes-1.12.1/themes/base/jquery-ui.css">
+ <!--  bootstrap  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> -->
+ 
+  <!-- valiate the digits -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+  <!-- Jquery UI -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+ <!--  put it below jquery and jqueryUi -->
+  <script type="text/javascript" src="data.js"></script>
+
+
+  <script type="text/javascript"> 
+  // time picker ****
+
+  $(document).ready(function(){
+    $('input.timepicker').timepicker({
+    // timeFormat: 'HH:mm:ss',
+    interval: 30,
+    timeFormat: 'h:mm p',
+    // minTime: '10', 
+    // maxTime: '6:00pm',
+    // defaultTime: '11',
+    // startTime: '10:00',
+    dynamic: true,
+    dropdown: true,
+    scrollbar: true
+
+    });
+  });
+  </script>
+
+<script>
+
+// $(document).ready(function() {
+//   //jQuery code goes here
+// // type check the flight number value ;
+// $("#flightnumber").on('input', function() {
+//   var input = $(this);
+//   var digits = input.val();
+//   if(digits){
+//       if(digits.length < 5){
+//         $("#error-message").removeClass("error_show").addClass("error");
+//         console.log("less");}else{
+//       $("#error-message").removeClass("error").addClass("error_show");
+//       console.log("more");
+//   }
+//   }
+//   console.log(input.val());
+// });
+
+// });
+
+$(function() {
+  jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+// 
+//form validator in Jquery 
+
+$( "#travel-data" ).validate({
+  rules: {
+    carrier : "required",
+    arrivaltime: "required",
+    departuretime: "required",
+    destinationairport:"required",
+    departureairport :"required",
+    departuredate: "required",
+    flightnumber: {
+      required: true,
+       digits: true,
+        min: 1,
+        max: 9999,
+      }
+    },
+  messages: {
+        flightnumber:{
+          min: "The minimum value is 0",
+          max: "The maximum value is 9999",
+          digits: "The value must be a number",
+          required : "Required Field"
+        },
+        carrier :"We need the carrier Info",
+        arrivaltime: "We need arrival time",
+        departuretime :"We need departure time",
+        destinationairport:"We need destination airport",
+        departureairport:"We need departure airport",
+        departuredate :"We need departuredate"
+        
+         }
+  
+});
+
+
+});
+
+
+//date picker 
+
+  $( function() {
+    $( 'input.datepicker' ).datepicker();
+  } );
+
+
+$(function() {
+
+  $( "form" ).submit(function( event ) {
+      $( "span" ).text( "Successfully Submitted !!" ).css('color','#008000').hide();
+
+     var empty = $(this).parent().find("input").filter(function() {
+        return this.value === "";
+      });
+    if(!empty.length) {
+        //At least one input is empty
+        $( "span" ).text( "Successfully Submitted !!" ).css('color','#008000').show();
+    }
+        
+        var values = $(this).serialize();
+        console.log(values);
+
+      event.preventDefault();
+
+  // if ( $( "input:first" ).val() === "correct" ) {
+  //   alert("Submitted");
+  //   $( "span" ).text( "Successfully Submitted !!" ).css('color','#008000').show();
+  // //   return;
+  // // }
+  // // $( "span" ).text( "Not valid!" ).show().fadeOut( 1000 );
+  //  event.preventDefault();
+});
+
+
+});
+  
+
+</script>
+
+
+</head>
+<body>
+
+
+<div class="container-fluid ">
+
+  <H1 class ="text-center"> Cloud Flight - T4</H1>
+<!-- action="javascript:alert( 'success!' );" -->
+<form id = "travel-data" >
+  <div class="form-group">
+    <label for="departuredate">When are you travelling ?</label>
+    <input type="text" class="form-control datepicker" id="departuredate" name="departuredate"placeholder="Select Departure Date">
+  </div>
+  <div class="form-group">
+    <label for="departureairport">Where are you flying from ?</label>
+    <input type="text" class="form-control airportpicker" id="departureairport" name="departureairport"placeholder="Type Departure Airport">
+     
+  </div>
+  <div class="form-group">
+    <label for="destinationairport">Where are you flying to ?</label>
+    <input type="text" class="form-control airportpicker" id="destinationairport" name="destinationairport"placeholder="Type Destination Airport">
+  </div>
+  <!-- <div class="form-group">
+    <label for="destination airport">Where are you flying to ?</label>
+    <input type="text" class="form-control" id="destination airport" placeholder="Select Destination Airport">
+  </div> -->
+  <div class="form-group">
+    <label for="departuretime">Departure Time </label>
+    <input type="text" class=" form-control timepicker" id="departuretime" name="departuretime"placeholder="Select Departure Time">
+  </div>
+
+  <div class="form-group">
+    <label for="arrivaltime">Arrival Time</label>
+    <input type="text" class="form-control timepicker" id="arrivaltime" name="arrivaltime"placeholder="Select Arrival Time">
+  </div>
+  
+  <div class="form-group">
+    <label for="carrier">Select Carrier</label>
+    <input type="text" class="form-control carrierpicker" id="carrier" name="carrier"placeholder="Type Your Carrier">
+  </div>
+
+  <div class="form-group">
+    <label for="flightnumber">Flight Number</label>
+    <input type="text" class="form-control validatedigit"  id="flightnumber" name="flightnumber" placeholder="eg 1125">
+    <!-- <span id ="error-message"class="error">Number Upto 4 Digits Only </span> -->
+  </div>
+   
+   <input type="submit" class="btn btn-default" value="Submit">   
+
+</form>
+<span></span>
+
+
+</div>
+ 
+  
+ <script src="/Users/bishalgautam/Desktop/EEL6761/FlightDelayPredict/HTML/jquery-timepicker-1.3.5/jquery.timepicker.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        @* Here's where we render the page title `String`. *@
+        <meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>@title</title>     
+ 	
+  <!-- link for stylesheets --> 
+  <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/style.css")">
+  <!-- time picker  -->
+  <link  rel="stylesheet" href="@routes.Assets.versioned("javascripts/jquery-timepicker-1.3.5/jquery.timepicker.min.css")">
+  <link  rel="stylesheet" href="@routes.Assets.versioned("javascripts/jquery-ui-themes-1.12.1/themes/base/jquery-ui.css")">
+ <!--  bootstrap  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> -->
+       
+</head>
+
+    <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle"
+            data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CloudFlight</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <div class="starter-template">
+       
+        <div class="lead">
+            @content
+        </div>
+      </div>
+    </div><!-- /.container -->
+    </body>
+</html>
