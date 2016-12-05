@@ -1,0 +1,8 @@
+New log file opened at Sun Dec 04 15:28:22 EST 2016 by 6196@Bishals-MacBook-Pro.local
+Taking next connection to: 62499
+New client attempting to connect on port: 62500-62499
+  Address = /192.168.2.2:62499
+Server socket closed java.io.EOFException: null
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
